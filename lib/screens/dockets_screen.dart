@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'dockets_list.dart';
+import '../components/dockets_list.dart';
+import 'add_docket_screen.dart';
 
 class DocketsScreen extends StatelessWidget {
   @override
@@ -11,7 +12,9 @@ class DocketsScreen extends StatelessWidget {
         backgroundColor: Colors.lightBlueAccent,
         child: Icon(Icons.add),
         onPressed: () {
-          debugPrint('Adding a new Task');
+//          debugPrint('Adding a new Task');
+          showModalBottomSheet(
+              context: context, builder: (context) => AddDocketScreen());
         },
       ),
       body: SafeArea(
@@ -20,7 +23,7 @@ class DocketsScreen extends StatelessWidget {
           children: <Widget>[
             Container(
               padding: EdgeInsets.only(
-                top: 60.0,
+                top: 30.0,
                 left: 30.0,
                 right: 30.0,
                 bottom: 30.0,
@@ -87,4 +90,10 @@ class DocketsScreen extends StatelessWidget {
       ),
     );
   }
+
+//  Widget addNewDocket(BuildContext context) => Container(
+//        child: Center(
+//          child: Text('Add new Docket here...'),
+//        ),
+//      );
 }
