@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'dockets_list.dart';
+
 class DocketsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -8,7 +10,9 @@ class DocketsScreen extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.lightBlueAccent,
         child: Icon(Icons.add),
-        onPressed: null,
+        onPressed: () {
+          debugPrint('Adding a new Task');
+        },
       ),
       body: SafeArea(
         child: Column(
@@ -75,24 +79,7 @@ class DocketsScreen extends StatelessWidget {
                     topRight: Radius.circular(25.0),
                   ),
                 ),
-                child: ListView(
-                  children: <Widget>[
-                    ListTile(
-                      title: Text('My First Docket'),
-                      trailing: Checkbox(
-                        value: false,
-                        onChanged: (bool value) {},
-                      ),
-                    ),
-                    ListTile(
-                      title: Text('My Second Docket'),
-                      trailing: Checkbox(
-                        value: false,
-                        onChanged: (bool value) {},
-                      ),
-                    ),
-                  ],
-                ),
+                child: new DocketsList(),
               ),
             ),
           ],
