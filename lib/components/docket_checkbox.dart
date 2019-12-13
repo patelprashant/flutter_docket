@@ -1,22 +1,16 @@
 import 'package:flutter/material.dart';
 
-class DocketCheckbox extends StatefulWidget {
-  @override
-  _DocketCheckboxState createState() => _DocketCheckboxState();
-}
+class DocketCheckbox extends StatelessWidget {
+  final bool docketState;
+  final Function toggleDocketState;
 
-class _DocketCheckboxState extends State<DocketCheckbox> {
-  bool isDocketDone = false;
+  DocketCheckbox({this.docketState, this.toggleDocketState});
   @override
   Widget build(BuildContext context) {
     return Checkbox(
       activeColor: Colors.lightBlueAccent,
-      value: isDocketDone,
-      onChanged: (bool value) {
-        setState(() {
-          isDocketDone = value;
-        });
-      },
+      value: docketState,
+      onChanged: toggleDocketState,
     );
   }
 }
