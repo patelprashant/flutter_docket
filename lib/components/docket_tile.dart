@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'docket_checkbox.dart';
+
 class DocketTile extends StatelessWidget {
   const DocketTile({
     Key key,
@@ -9,10 +11,7 @@ class DocketTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       title: Text('My First Docket'),
-      trailing: Checkbox(
-        value: false,
-        onChanged: (bool value) {},
-      ),
+      trailing: new DocketCheckbox(),
     );
   }
 }
