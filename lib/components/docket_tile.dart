@@ -3,14 +3,9 @@ import 'package:flutter/material.dart';
 class DocketTile extends StatelessWidget {
   final bool isDocketDone;
   final String docketTitle;
+  final Function docketCallback;
 
-  DocketTile({this.isDocketDone, this.docketTitle});
-
-  void docketStateCallback(newValue) {
-//    setState(() {
-//      isDocketDone = newValue;
-//    });
-  }
+  DocketTile({this.isDocketDone, this.docketTitle, this.docketCallback});
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +19,7 @@ class DocketTile extends StatelessWidget {
       trailing: Checkbox(
         activeColor: Colors.lightBlueAccent,
         value: isDocketDone,
-//        onChanged: toggleDocketState,
+        onChanged: docketCallback,
       ),
     );
   }

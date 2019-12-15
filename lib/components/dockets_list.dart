@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_docket/components/docket_tile.dart';
 import 'package:flutter_docket/model/docket.dart';
+
+import 'docket_tile.dart';
 
 class DocketsList extends StatefulWidget {
   @override
@@ -16,21 +17,20 @@ class _DocketsListState extends State<DocketsList> {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: <Widget>[
-        DocketTile(
-          docketTitle: dockets[0].name,
-          isDocketDone: dockets[0].isDone,
-        ),
-        DocketTile(
-          docketTitle: dockets[1].name,
-          isDocketDone: dockets[1].isDone,
-        ),
-        DocketTile(
-          docketTitle: dockets[2].name,
-          isDocketDone: dockets[2].isDone,
-        ),
-      ],
+    return ListView.builder(
+      itemBuilder: (BuildContext context, int index) {
+        return DocketTile(
+          docketTitle: dockets[index].name,
+          isDocketDone: dockets[index].isDone,
+          docketCallback: (docketState) {
+//            debugPrint(dockets[index].name);
+            setState(() {
+              dockets[index].toggleDone();
+            });
+          },
+        );
+      },
+      itemCount: dockets.length,
     );
   }
 }
