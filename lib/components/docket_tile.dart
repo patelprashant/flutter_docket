@@ -1,32 +1,31 @@
 import 'package:flutter/material.dart';
 
-import 'docket_checkbox.dart';
+class DocketTile extends StatelessWidget {
+  final bool isDocketDone;
+  final String docketTitle;
 
-class DocketTile extends StatefulWidget {
-  @override
-  _DocketTileState createState() => _DocketTileState();
-}
-
-class _DocketTileState extends State<DocketTile> {
-  bool isDocketDone = false;
+  DocketTile({this.isDocketDone, this.docketTitle});
 
   void docketStateCallback(newValue) {
-    setState(() {
-      isDocketDone = newValue;
-    });
+//    setState(() {
+//      isDocketDone = newValue;
+//    });
   }
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
       title: Text(
-        'My First Docket',
+        docketTitle,
         style: TextStyle(
           decoration: isDocketDone ? TextDecoration.lineThrough : null,
         ),
       ),
-      trailing: new DocketCheckbox(
-          docketState: isDocketDone, toggleDocketState: docketStateCallback),
+      trailing: Checkbox(
+        activeColor: Colors.lightBlueAccent,
+        value: isDocketDone,
+//        onChanged: toggleDocketState,
+      ),
     );
   }
 }
