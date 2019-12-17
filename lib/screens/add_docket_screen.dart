@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 
 class AddDocketScreen extends StatelessWidget {
+  final Function addDocketCallback;
+
+  AddDocketScreen(this.addDocketCallback);
+
   @override
   Widget build(BuildContext context) {
+    String newDocketTitle;
     return Container(
       color: Color(0xFF757575),
       padding: EdgeInsets.all(5.0),
@@ -29,6 +34,9 @@ class AddDocketScreen extends StatelessWidget {
             TextField(
               autofocus: true,
               textAlign: TextAlign.center,
+              onChanged: (newTextValue) {
+                newDocketTitle = newTextValue;
+              },
             ),
             SizedBox(
               height: 10.0,
@@ -42,7 +50,7 @@ class AddDocketScreen extends StatelessWidget {
                 ),
               ),
               onPressed: () {
-                debugPrint('Add docket text here..');
+                addDocketCallback(newDocketTitle);
               },
             ),
           ],

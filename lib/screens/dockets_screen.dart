@@ -27,7 +27,14 @@ class _DocketsScreenState extends State<DocketsScreen> {
         onPressed: () {
 //          debugPrint('Adding a new Task');
           showModalBottomSheet(
-              context: context, builder: (context) => AddDocketScreen());
+              context: context,
+              builder: (context) => AddDocketScreen((newDocket) {
+                    debugPrint(newDocket);
+                    setState(() {
+                      dockets.add(Docket(name: newDocket));
+                    });
+                    Navigator.pop(context);
+                  }));
         },
       ),
       body: SafeArea(
@@ -68,7 +75,7 @@ class _DocketsScreenState extends State<DocketsScreen> {
                     height: 15.0,
                   ),
                   Text(
-                    '12 Tasks',
+                    '${dockets.length} Tasks',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 20.0,
