@@ -1,9 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_docket/model/docket.dart';
 
 import '../components/dockets_list.dart';
 import 'add_docket_screen.dart';
 
-class DocketsScreen extends StatelessWidget {
+class DocketsScreen extends StatefulWidget {
+  @override
+  _DocketsScreenState createState() => _DocketsScreenState();
+}
+
+class _DocketsScreenState extends State<DocketsScreen> {
+  List<Docket> dockets = [
+    Docket(name: "My First Task"),
+    Docket(name: "My Second Task"),
+    Docket(name: "My Third Task"),
+    Docket(name: "My Fourth Task"),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -82,7 +95,7 @@ class DocketsScreen extends StatelessWidget {
                     topRight: Radius.circular(25.0),
                   ),
                 ),
-                child: new DocketsList(),
+                child: new DocketsList(dockets),
               ),
             ),
           ],
@@ -90,10 +103,4 @@ class DocketsScreen extends StatelessWidget {
       ),
     );
   }
-
-//  Widget addNewDocket(BuildContext context) => Container(
-//        child: Center(
-//          child: Text('Add new Docket here...'),
-//        ),
-//      );
 }
