@@ -22,7 +22,7 @@ class DocketsList extends StatelessWidget {
               },
             );
           },
-          itemCount: docketData.dockets.length,
+          itemCount: docketData.docketCounts,
         );
       },
     );

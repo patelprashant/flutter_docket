@@ -64,7 +64,7 @@ class DocketsScreen extends StatelessWidget {
                     height: 15.0,
                   ),
                   Text(
-                    '${Provider.of<DocketData>(context).dockets.length} Tasks',
+                    '${Provider.of<DocketData>(context).docketCounts} Tasks',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 20.0,

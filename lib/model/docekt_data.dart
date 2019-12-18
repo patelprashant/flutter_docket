@@ -9,4 +9,8 @@ class DocketData extends ChangeNotifier {
     Docket(name: "My Third Task"),
     Docket(name: "My Fourth Task"),
   ];
+
+  int get docketCounts {
+    return dockets.length;
+  }
 }
