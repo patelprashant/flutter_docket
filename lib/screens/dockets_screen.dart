@@ -1,22 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_docket/model/docket.dart';
+import 'package:flutter_docket/model/docekt_data.dart';
+import 'package:provider/provider.dart';
 
 import '../components/dockets_list.dart';
 import 'add_docket_screen.dart';
 
-class DocketsScreen extends StatefulWidget {
-  @override
-  _DocketsScreenState createState() => _DocketsScreenState();
-}
-
-class _DocketsScreenState extends State<DocketsScreen> {
-  List<Docket> dockets = [
-    Docket(name: "My First Task"),
-    Docket(name: "My Second Task"),
-    Docket(name: "My Third Task"),
-    Docket(name: "My Fourth Task"),
-  ];
-
+class DocketsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,9 +19,9 @@ class _DocketsScreenState extends State<DocketsScreen> {
               context: context,
               builder: (context) => AddDocketScreen((newDocket) {
                     debugPrint(newDocket);
-                    setState(() {
-                      dockets.add(Docket(name: newDocket));
-                    });
+                    // setState(() {
+                    //   dockets.add(Docket(name: newDocket));
+                    // });
                     Navigator.pop(context);
                   }));
         },
@@ -75,7 +64,7 @@ class _DocketsScreenState extends State<DocketsScreen> {
                     height: 15.0,
                   ),
                   Text(
-                    '${dockets.length} Tasks',
+                    '${Provider.of<DocketData>(context).dockets.length} Tasks',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 20.0,
@@ -102,7 +91,7 @@ class _DocketsScreenState extends State<DocketsScreen> {
                     topRight: Radius.circular(25.0),
                   ),
                 ),
-                child: new DocketsList(dockets),
+                child: new DocketsList(),
               ),
             ),
           ],
