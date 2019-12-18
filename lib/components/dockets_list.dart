@@ -7,20 +7,24 @@ import 'docket_tile.dart';
 class DocketsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemBuilder: (BuildContext context, int index) {
-        return DocketTile(
-          docketTitle: Provider.of<DocketData>(context).dockets[index].name,
-          isDocketDone: Provider.of<DocketData>(context).dockets[index].isDone,
-          docketCallback: (docketState) {
+    return Consumer<DocketData>(
+      builder: (BuildContext context, docketData, Widget child) {
+        return ListView.builder(
+          itemBuilder: (BuildContext context, int index) {
+            return DocketTile(
+              docketTitle: docketData.dockets[index].name,
+              isDocketDone: docketData.dockets[index].isDone,
+              docketCallback: (docketState) {
 //            debugPrint(dockets[index].name);
-            // setState(() {
-            //   widget.dockets[index].toggleDone();
-            // });
+                // setState(() {
+                //   widget.dockets[index].toggleDone();
+                // });
+              },
+            );
           },
+          itemCount: docketData.dockets.length,
         );
       },
-      itemCount: Provider.of<DocketData>(context).dockets.length,
     );
   }
 }
