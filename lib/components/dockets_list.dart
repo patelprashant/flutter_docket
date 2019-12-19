@@ -11,14 +11,12 @@ class DocketsList extends StatelessWidget {
       builder: (BuildContext context, docketData, Widget child) {
         return ListView.builder(
           itemBuilder: (BuildContext context, int index) {
+            final currentDocket = docketData.dockets[index];
             return DocketTile(
-              docketTitle: docketData.dockets[index].name,
-              isDocketDone: docketData.dockets[index].isDone,
+              docketTitle: currentDocket.name,
+              isDocketDone: currentDocket.isDone,
               docketCallback: (docketState) {
-//            debugPrint(dockets[index].name);
-                // setState(() {
-                //   widget.dockets[index].toggleDone();
-                // });
+                docketData.updateDocket(currentDocket);
               },
             );
           },

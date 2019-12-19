@@ -25,4 +25,9 @@ class DocketData extends ChangeNotifier {
     _dockets.add(newDocket);
     notifyListeners();
   }
+
+  void updateDocket(Docket docket) {
+    docket.toggleDone();
+    notifyListeners();
+  }
 }
