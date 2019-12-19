@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_docket/model/docekt_data.dart';
+import 'package:flutter_docket/model/docket.dart';
+import 'package:provider/provider.dart';
 
 class AddDocketScreen extends StatelessWidget {
-  final Function addDocketCallback;
-
-  AddDocketScreen(this.addDocketCallback);
-
   @override
   Widget build(BuildContext context) {
     String newDocketTitle;
@@ -50,7 +49,8 @@ class AddDocketScreen extends StatelessWidget {
                 ),
               ),
               onPressed: () {
-                addDocketCallback(newDocketTitle);
+                Provider.of<DocketData>(context).addDocket(newDocketTitle);
+                Navigator.pop(context);
               },
             ),
           ],
