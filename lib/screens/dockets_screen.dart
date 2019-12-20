@@ -8,13 +8,16 @@ import 'add_docket_screen.dart';
 class DocketsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    var totalDockets = Provider.of<DocketData>(context).docketCounts;
+    var totalDoneDockets = Provider.of<DocketData>(context).docketDoneCounts;
+    var docketString = totalDockets > 1 ? 'Dockets' : 'Docket';
     return Scaffold(
       backgroundColor: Colors.lightBlueAccent,
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.lightBlueAccent,
         child: Icon(Icons.add),
         onPressed: () {
-//          debugPrint('Adding a new Task');
+          //          debugPrint('Adding a new Task');
           showModalBottomSheet(
               context: context, builder: (context) => AddDocketScreen());
         },
@@ -57,7 +60,7 @@ class DocketsScreen extends StatelessWidget {
                     height: 15.0,
                   ),
                   Text(
-                    '${Provider.of<DocketData>(context).docketCounts} Tasks',
+                    '$totalDoneDockets / $totalDockets $docketString Done',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 20.0,

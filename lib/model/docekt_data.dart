@@ -20,6 +20,11 @@ class DocketData extends ChangeNotifier {
     return _dockets.length;
   }
 
+  int get docketDoneCounts {
+    List<Docket> doneDockets = _dockets.where((d) => d.isDone).toList();
+    return doneDockets.length;
+  }
+
   void addDocket(String docketTitle) {
     final Docket newDocket = Docket(name: docketTitle);
     _dockets.add(newDocket);
