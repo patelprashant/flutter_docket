@@ -30,4 +30,9 @@ class DocketData extends ChangeNotifier {
     docket.toggleDone();
     notifyListeners();
   }
+
+  void deleteDocket(Docket docket) {
+    _dockets.remove(docket);
+    notifyListeners();
+  }
 }

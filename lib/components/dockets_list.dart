@@ -18,6 +18,9 @@ class DocketsList extends StatelessWidget {
               docketCallback: (docketState) {
                 docketData.updateDocket(currentDocket);
               },
+              longPressCallback: () {
+                docketData.deleteDocket(currentDocket);
+              },
             );
           },
           itemCount: docketData.docketCounts,
