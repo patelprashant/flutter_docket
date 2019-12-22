@@ -6,10 +6,10 @@ import 'docket.dart';
 
 class DocketData extends ChangeNotifier {
   List<Docket> _dockets = [
-    Docket(name: "My First Task"),
-    Docket(name: "My Second Task"),
-    Docket(name: "My Third Task"),
-    Docket(name: "My Fourth Task"),
+    Docket(name: "My First Docket"),
+    Docket(name: "My Second Docket"),
+    Docket(name: "My Third Docket"),
+    Docket(name: "My Fourth Docket"),
   ];
 
   UnmodifiableListView<Docket> get dockets {

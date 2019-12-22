@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_docket/model/docekt_data.dart';
+import 'package:flutter_docket/model/docket_data.dart';
 import 'package:flutter_docket/screens/dockets_screen.dart';
 import 'package:provider/provider.dart';
 
