@@ -1,6 +1,9 @@
-# flutter_docket
+# My Dockets
 
-A new Flutter application to show the ToDo List with provider state management.
+## Description
+
+A new Flutter application to show the Docket List with provider state management.
+The app lets you Add/Update the docket list. Update flutter widgets / UI based on data update.
 
 ## Getting Started
 
@@ -14,3 +17,7 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+## Snapshots of the app
+
+![List with FAB](/screenshots/001.png)  ![Checked Dockets](/screenshots/002.png)  ![Add Docket](/screenshots/003.png)
