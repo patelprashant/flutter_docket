@@ -243,7 +243,6 @@ abstract class _$AppDatabase extends GeneratedDatabase {
   $DbDocketsTable _dbDockets;
   $DbDocketsTable get dbDockets => _dbDockets ??= $DbDocketsTable(this);
   DbDocketsDao _dbDocketsDao;
-
   DbDocketsDao get dbDocketsDao =>
       _dbDocketsDao ??= DbDocketsDao(this as AppDatabase);
   @override

@@ -20,9 +20,7 @@ class _DocketsScreenState extends State<DocketsScreen> {
         final docketData = snapshot.data ?? List();
         var totalDockets = docketData.length;
         var totalDoneDockets =
-            docketData
-                .where((f) => f.completed == true)
-                .length;
+            docketData.where((f) => f.completed == true).length;
         var docketString = totalDockets > 1 ? 'Dockets' : 'Docket';
 
         return Scaffold(
@@ -86,7 +84,7 @@ class _DocketsScreenState extends State<DocketsScreen> {
                 Expanded(
                   child: Container(
                     padding:
-                    EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
+                        EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
                     decoration: BoxDecoration(
                       boxShadow: [
                         BoxShadow(

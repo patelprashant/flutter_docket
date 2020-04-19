@@ -7,11 +7,12 @@ class DocketTile extends StatelessWidget {
   final Function docketCallback;
   final Function longPressCallback;
 
-  DocketTile({this.docketId,
-    this.isDocketDone,
-    this.docketTitle,
-    this.docketCallback,
-    this.longPressCallback});
+  DocketTile(
+      {this.docketId,
+      this.isDocketDone,
+      this.docketTitle,
+      this.docketCallback,
+      this.longPressCallback});
 
   @override
   Widget build(BuildContext context) {
