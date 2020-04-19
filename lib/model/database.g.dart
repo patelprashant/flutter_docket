@@ -242,8 +242,20 @@ abstract class _$AppDatabase extends GeneratedDatabase {
   _$AppDatabase(QueryExecutor e) : super(SqlTypeSystem.defaultInstance, e);
   $DbDocketsTable _dbDockets;
   $DbDocketsTable get dbDockets => _dbDockets ??= $DbDocketsTable(this);
+  DbDocketsDao _dbDocketsDao;
+
+  DbDocketsDao get dbDocketsDao =>
+      _dbDocketsDao ??= DbDocketsDao(this as AppDatabase);
   @override
   Iterable<TableInfo> get allTables => allSchemaEntities.whereType<TableInfo>();
   @override
   List<DatabaseSchemaEntity> get allSchemaEntities => [dbDockets];
+}
+
+// **************************************************************************
+// DaoGenerator
+// **************************************************************************
+
+mixin _$DbDocketsDaoMixin on DatabaseAccessor<AppDatabase> {
+  $DbDocketsTable get dbDockets => db.dbDockets;
 }

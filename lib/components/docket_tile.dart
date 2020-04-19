@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 
 class DocketTile extends StatelessWidget {
+  final int docketId;
   final bool isDocketDone;
   final String docketTitle;
   final Function docketCallback;
   final Function longPressCallback;
 
-  DocketTile(
-      {this.isDocketDone,
-      this.docketTitle,
-      this.docketCallback,
-      this.longPressCallback});
+  DocketTile({this.docketId,
+    this.isDocketDone,
+    this.docketTitle,
+    this.docketCallback,
+    this.longPressCallback});
 
   @override
   Widget build(BuildContext context) {
