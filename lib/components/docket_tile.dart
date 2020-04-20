@@ -22,6 +22,7 @@ class DocketTile extends StatelessWidget {
         docketTitle,
         style: TextStyle(
           decoration: isDocketDone ? TextDecoration.lineThrough : null,
+          color: isDocketDone ? Colors.grey[400] : Colors.black,
         ),
       ),
       trailing: Checkbox(

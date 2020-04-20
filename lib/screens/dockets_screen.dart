@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_docket/model/database.dart';
+import 'package:flutter_docket/screens/docket_header.dart';
 import 'package:provider/provider.dart';
 
 import '../components/dockets_list.dart';
@@ -18,10 +19,10 @@ class _DocketsScreenState extends State<DocketsScreen> {
       stream: dbDao.watchAllDbDockets(),
       builder: (context, AsyncSnapshot<List<DbDocket>> snapshot) {
         final docketData = snapshot.data ?? List();
-        var totalDockets = docketData.length;
-        var totalDoneDockets =
+        var totalDocketsCount = docketData.length;
+        var completedDocketsCount =
             docketData.where((f) => f.completed == true).length;
-        var docketString = totalDockets > 1 ? 'Dockets' : 'Docket';
+        var docketPrefixString = totalDocketsCount > 1 ? 'Dockets' : 'Docket';
 
         return Scaffold(
           backgroundColor: Colors.lightBlueAccent,
@@ -38,48 +39,10 @@ class _DocketsScreenState extends State<DocketsScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Container(
-                  padding: EdgeInsets.only(
-                    top: 30.0,
-                    left: 30.0,
-                    right: 30.0,
-                    bottom: 30.0,
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      CircleAvatar(
-                        backgroundColor: Colors.white,
-                        radius: 30.0,
-                        child: Icon(
-                          Icons.list,
-                          size: 35.0,
-                          color: Colors.lightBlueAccent,
-                        ),
-                      ),
-                      SizedBox(
-                        height: 15.0,
-                      ),
-                      Text(
-                        'My Dockets',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 40.0,
-                          fontWeight: FontWeight.w700,
-                        ),
-                      ),
-                      SizedBox(
-                        height: 15.0,
-                      ),
-                      Text(
-                        '$totalDoneDockets / $totalDockets $docketString Done',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20.0,
-                        ),
-                      ),
-                    ],
-                  ),
+                DocketHeader(
+                  completedDocketsCount: completedDocketsCount,
+                  totalDocketsCount: totalDocketsCount,
+                  docketPrefixString: docketPrefixString,
                 ),
                 Expanded(
                   child: Container(
