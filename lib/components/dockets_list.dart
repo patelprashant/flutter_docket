@@ -14,10 +14,9 @@ class DocketsList extends StatelessWidget {
         builder: (context, AsyncSnapshot<List<DbDocket>> snapshot) {
           final docketData = snapshot.data ?? List();
           return ListView.separated(
-            separatorBuilder: (context, index) =>
-                Divider(
-                  color: Colors.grey[400],
-                ),
+            separatorBuilder: (context, index) => Divider(
+              color: Colors.grey[400],
+            ),
             itemCount: docketData.length,
             itemBuilder: (BuildContext context, int index) {
               final currentDocket = docketData[index];
